@@ -1,6 +1,6 @@
-import { NgModule, Component } from '@angular/core';
+import { NgModule, Component, ViewContainerRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { Ng2BootstrapModule } from "ng2-bootstrap/ng2-bootstrap";
+import { Ng2BootstrapModule, ComponentsHelper } from "ng2-bootstrap/ng2-bootstrap";
 
 import { UpgradeAdapter } from '@angular/upgrade';
 import { forwardRef } from "@angular/core";
@@ -31,7 +31,11 @@ let app = angular.module("app", []);
     </div>
   `
 })
-class MyApp { }
+class MyApp {
+  constructor(componentsHelper:ComponentsHelper, vcr: ViewContainerRef){
+    componentsHelper.setRootViewContainerRef(vcr);
+  }
+}
 app.directive("myApp", upgradeAdapter.downgradeNg2Component(MyApp));
 
 @NgModule({
