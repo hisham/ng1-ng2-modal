@@ -15,7 +15,7 @@
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
       '@angular/upgrade': 'npm:@angular/upgrade/bundles/upgrade.umd.js',
       'rxjs': 'npm:rxjs',
-      'ng2-bootstrap': 'npm:ng2-bootstrap',
+      'ng2-bootstrap': 'npm:ng2-bootstrap/bundles/ng2-bootstrap.umd.js',
       'moment': 'npm:moment',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api',
     },
@@ -25,10 +25,6 @@
         defaultExtension: 'js'
       },
       rxjs: {
-        defaultExtension: 'js'
-      },
-      'ng2-bootstrap': {
-        main: './ng2-bootstrap.js',
         defaultExtension: 'js'
       },
       "moment": {

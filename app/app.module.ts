@@ -1,6 +1,6 @@
-import { NgModule, Component, ViewContainerRef } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { Ng2BootstrapModule, ComponentsHelper } from "ng2-bootstrap/ng2-bootstrap";
+import {Ng2BootstrapModule, TooltipModule, ModalModule} from "ng2-bootstrap";
 
 import { UpgradeAdapter } from '@angular/upgrade';
 import { forwardRef } from "@angular/core";
@@ -12,7 +12,7 @@ let app = angular.module("app", []);
 @Component({
   selector: 'my-app',
   template: `
-    <button class="btn btn-primary" (click)="lgModal.show()">Large modal</button>
+   <button class="btn btn-primary" (click)="lgModal.show()">Large modal</button>
 
     <div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
@@ -29,18 +29,23 @@ let app = angular.module("app", []);
         </div>
       </div>
     </div>
+    
+    <br/><br/>
+    <a href="#" tooltip="tipContent" [tooltipAppendToBody]="true">Check me out!</a>
+
+    <span tooltip="Add to Favorites" container="body" class="glyphicon glyphicon-star-empty"></span>
+
+    
   `
 })
 class MyApp {
-  constructor(componentsHelper:ComponentsHelper, vcr: ViewContainerRef){
-    componentsHelper.setRootViewContainerRef(vcr);
-  }
+
 }
 app.directive("myApp", upgradeAdapter.downgradeNg2Component(MyApp));
 
 @NgModule({
   declarations: [MyApp],
-  imports: [BrowserModule, Ng2BootstrapModule]
+  imports: [BrowserModule, ModalModule.forRoot(), TooltipModule.forRoot()]
 })
 export class AppModule { }
 
