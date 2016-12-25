@@ -31,7 +31,7 @@ let app = angular.module("app", []);
     </div>
     
     <br/><br/>
-    <a href="#" tooltip="tipContent" [tooltipAppendToBody]="true">Check me out!</a>
+    <a href="#" tooltip="tipContent">Check me out!</a>
 
     <span tooltip="Add to Favorites" container="body" class="glyphicon glyphicon-star-empty"></span>
 
